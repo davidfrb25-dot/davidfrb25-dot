@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Botones WhatsApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      gap: 20px;
+    }
+
+    button {
+      width: 90%;
+      max-width: 300px;
+      padding: 18px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #22c55e;
+      color: black;
+      font-weight: bold;
+    }
+
+    button.emergencia {
+      background: #ef4444;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Mensajes rápidos</h2>
+
+  <button class="emergencia" onclick="enviar('🚨 Necesito ayuda ahora')">
+    🚨 Emergencia
+  </button>
+
+  <button onclick="enviar('🏠 Ya llegué bien')">
+    🏠 Llegué bien
+  </button>
+
+  <button onclick="enviar('⏰ Voy tarde, llego en 10 min')">
+    ⏰ Voy tarde
+  </button>
+
+  <script>
+    function enviar(mensaje) {
+      const texto = encodeURIComponent(mensaje);
+      const url = `https://wa.me/?text=${texto}`;
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>
